@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Necosmic";
+  src: url("/fonts/Necosmic.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-inter: Inter;
+  --font-necosmic: Necosmic;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-[#060708] text-white antialiased;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.14);
+}
