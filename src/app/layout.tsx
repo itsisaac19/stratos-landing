@@ -10,7 +10,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Stratos",
-  description: "Stratos landing page",
+  description:
+    "Ultimate stat tracking for captains and coaches—live games, halftime insights, and share-ready summaries in one disciplined workflow.",
   manifest: "/favicon_io/site.webmanifest",
   icons: {
     icon: [

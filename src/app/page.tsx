@@ -1,7 +1,16 @@
- "use client";
+"use client";
 
 import DotGrid from "@/components/DotGrid";
+import EarlyAccessModal from "@/components/EarlyAccessModal";
 import Button from "@/components/Button";
+import ClosingCta from "@/components/landing/ClosingCta";
+import FaqSection from "@/components/landing/FaqSection";
+import HowItWorksSection from "@/components/landing/HowItWorksSection";
+import PillarsSection from "@/components/landing/PillarsSection";
+import ProblemSection from "@/components/landing/ProblemSection";
+import ProductGlimpse from "@/components/landing/ProductGlimpse";
+import SiteFooter from "@/components/landing/SiteFooter";
+import TrustStrip from "@/components/landing/TrustStrip";
 import Image from "next/image";
 import { useState, type FormEvent, type MouseEvent } from "react";
 
@@ -61,7 +70,9 @@ export default function HomePage() {
   };
 
   return (
-    <main className="relative min-h-dvh overflow-hidden bg-[#060708]">
+    <main className="relative min-h-dvh overflow-x-hidden bg-[#060708]">
+      <DotGrid />
+
       <header className="pointer-events-none absolute left-6 top-6 z-20 md:left-10 md:top-8">
         <div className="pointer-events-auto inline-flex items-center">
           <Image
@@ -74,77 +85,17 @@ export default function HomePage() {
         </div>
       </header>
 
-      <DotGrid />
+      <EarlyAccessModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        email={email}
+        onEmailChange={setEmail}
+        status={status}
+        statusMessage={statusMessage}
+        onSubmit={handleSubmit}
+      />
 
-      {isModalOpen && (
-        <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm">
-          <div className="w-full max-w-md rounded-2xl border border-white/10 bg-[#05060a] p-6 shadow-xl outline-none">
-            <div className="mb-4 flex items-start justify-between gap-4">
-              <div>
-                <h2 className="text-lg font-semibold text-white">
-                  Join the early access
-                </h2>
-                <p className="mt-1 text-xs text-white/60">
-                  Drop your email and we&apos;ll let you know when Stratos is ready for your team.
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsModalOpen(false)}
-                className="rounded-full p-1 text-white/50 hover:bg-white/5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-              >
-                <span className="sr-only">Close</span>
-                ✕
-              </button>
-            </div>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <label
-                  htmlFor="early-access-email"
-                  className="block text-xs font-medium text-white/70"
-                >
-                  Work email
-                </label>
-                <input
-                  id="early-access-email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@clubname.org"
-                  className="h-10 w-full rounded-full border border-white/15 bg-white/[0.04] px-4 text-sm text-white placeholder:text-white/30 outline-none ring-0 transition focus:border-white/40 focus:ring-2 focus:ring-white/30"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="inline-flex h-10 w-full items-center justify-center rounded-full bg-white text-sm font-medium text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-              >
-                {status === "loading" ? "Joining…" : "Join the list"}
-              </button>
-
-              <div className="space-y-1">
-                <p className="text-[11px] leading-relaxed text-white/40">
-                  No spam, ever. Just an occasional update when new features land or we&apos;re opening more teams.
-                </p>
-                {status === "error" && statusMessage && (
-                  <p className="text-[11px] text-rose-400">{statusMessage}</p>
-                )}
-                {status === "success" && statusMessage && (
-                  <p className="text-[11px] text-emerald-400">
-                    {statusMessage}
-                  </p>
-                )}
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      <div className="relative z-10 mx-auto flex min-h-dvh max-w-5xl flex-col items-start justify-center px-6 py-12 md:px-10 lg:px-16">
+      <section className="relative z-10 mx-auto flex min-h-dvh max-w-5xl flex-col items-start justify-center px-6 py-12 md:px-10 lg:px-16">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 text-xs font-medium text-white/70 backdrop-blur">
           <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
           Early access
@@ -155,7 +106,9 @@ export default function HomePage() {
         </h1>
 
         <p className="mt-5 max-w-xl text-sm text-white/70 sm:text-base">
-        Stratos streamlines ultimate stat tracking for captains and coaches, unifying scorekeeping, line management, and post-game breakdowns into one clean interface so your team improves faster every tournament.
+          Stratos streamlines ultimate stat tracking for captains and coaches,
+          unifying scorekeeping, line management, and post-game breakdowns into
+          one clean interface so your team improves faster every tournament.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -182,12 +135,44 @@ export default function HomePage() {
             <div>Gesture-first actions for fast, intuitive scorekeeping.</div>
           </div>
           <div>
-            <div className="font-medium text-white/70">Built for granularity</div>
+            <div className="font-medium text-white/70">
+              Built for granularity
+            </div>
             <div>Detailed stats for every play, every point, every game.</div>
           </div>
         </div>
+      </section>
+
+      <div id="waitlist" className="relative z-10 scroll-mt-8">
+        <ProblemSection />
+        <PillarsSection />
+        <HowItWorksSection />
+        <TrustStrip />
+        <ProductGlimpse />
+        <FaqSection />
+        <ClosingCta
+          primary={
+            <Button
+              href="#waitlist"
+              variant="solid"
+              onClick={handleJoinClick}
+            >
+              Join the early access
+            </Button>
+          }
+          secondary={
+            <Button
+              href="https://www.linkedin.com/company/getstratos"
+              variant="ghost"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Learn more
+            </Button>
+          }
+        />
+        <SiteFooter />
       </div>
     </main>
   );
 }
-

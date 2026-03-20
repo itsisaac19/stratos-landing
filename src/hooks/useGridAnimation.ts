@@ -24,7 +24,7 @@ export function useGridAnimation(): GridAnim {
       // Slow drift + breathing opacity (kept subtle)
       const x = Math.sin(s * 0.12) * 18 + Math.sin(s * 0.053) * 10;
       const y = Math.cos(s * 0.10) * 14 + Math.cos(s * 0.041) * 8;
-      const o = 0.18 + (Math.sin(s * 0.7) * 0.5 + 0.5) * 0.22;
+      const o = 0.48 + (Math.sin(s * 0.7) * 0.5 + 0.5) * 0.22;
 
       setStyle({
         transform: `translate3d(${x}px, ${y}px, 0)`,

@@ -13,6 +13,17 @@
 :root {
   --font-inter: Inter;
   --font-necosmic: Necosmic;
+
+  /* Marketing tokens (LANDING_PAGE.md / app parity) */
+  --stratos-bg: #060708;
+  --stratos-surface: #1a1a1a;
+  --stratos-surface-light: #2a2a2a;
+  --stratos-text: #ffffff;
+  --stratos-text-secondary: #888888;
+  --stratos-text-muted: #666666;
+  --stratos-accent: #3b82f6;
+  --stratos-border: #333333;
+  --stratos-border-subtle: #222222;
 }
 
 html,
@@ -26,4 +37,10 @@ body {
 
 ::selection {
   background: rgba(255, 255, 255, 0.14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
