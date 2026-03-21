@@ -4,23 +4,23 @@ import SectionCanvas from "./SectionCanvas";
 const faqs = [
   {
     q: "Does it work offline?",
-    a: "Yes. Game data lives in SQLite on device so you can track without relying on spotty venue Wi‑Fi or cell service.",
+    a: "Yes. Everything saves to your device so you can track games without relying on spotty venue Wi‑Fi or cell service.",
   },
   {
     q: "What happens if I fix a mistake in the log?",
-    a: "Edits replay through the same projection pipeline as live events—stats stay consistent after you correct the log.",
+    a: "Edits replay through the same system as live events, so stats stay consistent after you correct the log.",
   },
   {
     q: "Can I use one roster for a whole tournament?",
-    a: "Roster your team once and reuse players across games and tournaments so setup stays lightweight.",
+    a: "Yes. Roster your team once and reuse players across games and tournaments.",
   },
   {
     q: "What stats appear at halftime vs post-game?",
-    a: "Halftime focuses on what you need between points—minutes, plus/minus, and line efficiency. Post-game adds summary leaders and share-ready text.",
+    a: "Halftime shows minutes, plus/minus, and line efficiency. Post-game adds summary leaders and share-ready text.",
   },
   {
     q: "How does account / sync work?",
-    a: "Sync is optional when you’re signed in. The sideline experience stays local-first; cloud is there when you want it, not a gate.",
+    a: "You can use Stratos without an account. Sign in if you want to sync data across devices or back up to the cloud.",
   },
 ] as const;
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 import ScrollReveal from "./ScrollReveal";
 import SectionCanvas from "./SectionCanvas";
@@ -17,6 +18,17 @@ export default function ClosingCta({ primary, secondary }: Props) {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_0%,rgba(59,130,246,0.12),transparent_60%)]"
         aria-hidden="true"
       />
+      {/* Blurred screenshot background */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <Image
+          src="/screenshots/game-summary.PNG"
+          alt=""
+          fill
+          className="object-cover object-top scale-110 blur-2xl opacity-10"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[#060708]/70" />
+      </div>
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.09] to-transparent"
         aria-hidden="true"
@@ -25,7 +37,7 @@ export default function ClosingCta({ primary, secondary }: Props) {
         <ScrollReveal>
           <div className="mx-auto max-w-xl text-center">
             <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-stratos-muted">
-              Early access
+              Ready to get started?
             </p>
             <h2
               id="cta-heading"
@@ -34,7 +46,7 @@ export default function ClosingCta({ primary, secondary }: Props) {
               Bring the numbers to the sideline.
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-stratos-secondary">
-              Join the list for early access—same flow as above, no new hoops.
+              Get early access and start tracking smarter at your next tournament.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               {primary}

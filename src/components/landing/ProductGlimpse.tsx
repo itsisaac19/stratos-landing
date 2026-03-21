@@ -1,12 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import SectionCanvas from "./SectionCanvas";
 
 const frames = [
-  { caption: "Live board", label: "Screenshot placeholder: live tracking" },
-  { caption: "Halftime insights", label: "Screenshot placeholder: insights" },
-  { caption: "Share-ready summary", label: "Screenshot placeholder: summary" },
+  { caption: "Live board", label: "Live tracking screen", src: "/screenshots/live-board.PNG" },
+  { caption: "Halftime insights", label: "Halftime insights screen", src: "/screenshots/insights.PNG" },
+  { caption: "Share-ready summary", label: "Share-ready summary screen", src: "/screenshots/game-summary.PNG" },
 ] as const;
 
 export default function ProductGlimpse() {
@@ -34,7 +35,7 @@ export default function ProductGlimpse() {
               </h2>
             </div>
             <p className="max-w-md text-sm text-stratos-secondary md:text-right">
-              Real screens—swap placeholders when assets are ready.
+              Real screens from the app.
             </p>
           </div>
         </ScrollReveal>
@@ -57,8 +58,9 @@ export default function ProductGlimpse() {
             role="region"
             aria-label="Product screenshots, scroll horizontally"
           >
-            <div className="flex w-max snap-x snap-mandatory gap-5 px-6 pb-2 pt-1 md:gap-8 md:px-10 md:pr-16 lg:gap-10 lg:px-16 lg:pr-24">
-              {frames.map((frame) => (
+            <div className="mx-auto w-full max-w-5xl px-6 md:px-10 lg:px-16">
+              <div className="flex w-max snap-x snap-mandatory gap-5 pb-2 pt-1 md:gap-8 lg:gap-10">
+                {frames.map((frame) => (
                 <figure
                   key={frame.caption}
                   className="w-[min(78vw,300px)] shrink-0 snap-center snap-always"
@@ -67,19 +69,17 @@ export default function ProductGlimpse() {
                     className="relative overflow-hidden rounded-[1.75rem] bg-[#0c0d10] shadow-[0_24px_80px_-32px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.06)_inset]"
                     style={{ aspectRatio: "9 / 19.5" }}
                   >
-                    <span className="sr-only">{frame.label}</span>
+                    <Image
+                      src={frame.src}
+                      alt={frame.label}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 78vw, 300px"
+                    />
                     <div
                       className="absolute inset-0 bg-[linear-gradient(165deg,rgba(255,255,255,0.06),transparent_45%,rgba(0,0,0,0.4))]"
                       aria-hidden="true"
                     />
-                    <div
-                      className="absolute inset-0 flex items-center justify-center"
-                      aria-hidden="true"
-                    >
-                      <span className="max-w-[11rem] text-center font-mono text-[10px] leading-relaxed text-stratos-muted">
-                        Screenshot placeholder
-                      </span>
-                    </div>
                     <div
                       className="absolute left-1/2 top-3 h-5 w-[28%] -translate-x-1/2 rounded-full bg-black/50"
                       aria-hidden="true"
@@ -90,6 +90,7 @@ export default function ProductGlimpse() {
                   </figcaption>
                 </figure>
               ))}
+              </div>
             </div>
           </div>
         </div>

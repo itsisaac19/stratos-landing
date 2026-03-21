@@ -14,11 +14,37 @@ function isValidEmail(email: string): boolean {
 
 export async function POST(request: NextRequest) {
   try {
-    const { email } = (await request.json()) as { email?: string };
+    const { email, teamName, category, division } = (await request.json()) as {
+      email?: string;
+      teamName?: string;
+      category?: string;
+      division?: string;
+    };
 
     if (!email || typeof email !== "string" || !isValidEmail(email)) {
       return NextResponse.json(
         { error: "Please enter a valid email address." },
+        { status: 400 }
+      );
+    }
+
+    if (!teamName || typeof teamName !== "string" || teamName.trim().length < 2) {
+      return NextResponse.json(
+        { error: "Please enter a valid team name." },
+        { status: 400 }
+      );
+    }
+
+    if (!category || typeof category !== "string") {
+      return NextResponse.json(
+        { error: "Please select a category." },
+        { status: 400 }
+      );
+    }
+
+    if (!division || typeof division !== "string") {
+      return NextResponse.json(
+        { error: "Please select a division." },
         { status: 400 }
       );
     }
@@ -42,6 +68,11 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         email_address: email.trim(),
         tags: ["stratos-early-access"],
+        metadata: {
+          team_name: teamName.trim(),
+          category: category,
+          division: division,
+        },
       }),
     });
 

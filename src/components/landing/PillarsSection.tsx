@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import SectionCanvas from "./SectionCanvas";
 
@@ -5,17 +6,23 @@ const pillars = [
   {
     title: "Live game flow",
     body:
-      "Scoreboard, timer, possession, and between-points flow—pull/receive, hang time when you want it—plus lines and two-tap passes with confirm. Everything lands in an editable game log you can trust mid-tournament.",
+      "Track score, time, possession, and everything between points. Set lines and log passes with quick taps. Edit mistakes on the fly so your stats stay accurate.",
+    src: "/screenshots/live-board.PNG",
+    alt: "Live board screen",
   },
   {
     title: "Coach view",
     body:
-      "Halftime-ready: points and minutes per player, plus/minus, O-line hold % and D-line break %—so adjustments are grounded in what already happened on the field.",
+      "Points and minutes per player, plus/minus, O-line hold % and D-line break %. Make adjustments based on what actually happened on the field.",
+    src: "/screenshots/insights.PNG",
+    alt: "Halftime insights screen",
   },
   {
     title: "Finish strong",
     body:
-      "Post-game summary with leaders; one-tap copy for Discord or WhatsApp. Data stays local-first; sync when it makes sense for your workflow.",
+      "Get a post-game summary with top performers. Copy and share to your team chat in one tap. Your data stays on your device, syncs when you want it to.",
+    src: "/screenshots/game-summary.PNG",
+    alt: "Game summary screen",
   },
 ] as const;
 
@@ -44,7 +51,7 @@ export default function PillarsSection() {
               </h2>
             </div>
             <p className="max-w-md text-sm leading-relaxed text-stratos-secondary md:text-right">
-              Track, understand, share—three loops that stay in sync when the
+              Track, understand, share. Three things that stay in sync when the
               game speeds up.
             </p>
           </div>
@@ -55,20 +62,44 @@ export default function PillarsSection() {
                 key={pillar.title}
                 className="group relative overflow-hidden rounded-2xl bg-gradient-to-b from-white/[0.07] to-white/[0.02] p-px shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset]"
               >
-                <div className="relative h-full rounded-[15px] bg-[#0a0b0d]/95 px-6 py-7 transition duration-300 group-hover:bg-[#0c0d10]/95">
+                <div className="relative h-full rounded-[15px] bg-[#0a0b0d]/95 transition duration-300 group-hover:bg-[#0c0d10]/95">
+                  {/* Screenshot thumbnail */}
                   <div
-                    className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-stratos-accent/10 blur-2xl transition duration-500 group-hover:bg-stratos-accent/15"
-                    aria-hidden="true"
-                  />
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-stratos-muted">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="relative mt-4 text-base font-semibold tracking-tight text-white">
-                    {pillar.title}
-                  </h3>
-                  <p className="relative mt-3 text-sm leading-relaxed text-stratos-secondary">
-                    {pillar.body}
-                  </p>
+                    className="relative w-full overflow-hidden rounded-t-[15px]"
+                    style={{ aspectRatio: "9 / 10" }}
+                  >
+                    <Image
+                      src={pillar.src}
+                      alt={pillar.alt}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div
+                      className="absolute inset-0 bg-[linear-gradient(165deg,rgba(255,255,255,0.05),transparent_45%,rgba(0,0,0,0.5))]"
+                      aria-hidden="true"
+                    />
+                    <div
+                      className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0a0b0d] to-transparent"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <div className="px-6 py-6">
+                    <div
+                      className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-stratos-accent/10 blur-2xl transition duration-500 group-hover:bg-stratos-accent/15"
+                      aria-hidden="true"
+                    />
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-stratos-muted">
+                      {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="relative mt-4 text-base font-semibold tracking-tight text-white">
+                      {pillar.title}
+                    </h3>
+                    <p className="relative mt-3 text-sm leading-relaxed text-stratos-secondary">
+                      {pillar.body}
+                    </p>
+                  </div>
                 </div>
               </article>
             ))}

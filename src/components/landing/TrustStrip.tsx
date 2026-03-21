@@ -2,10 +2,22 @@ import ScrollReveal from "./ScrollReveal";
 import SectionCanvas from "./SectionCanvas";
 
 const items = [
-  "Offline-friendly: SQLite locally; no hard network dependency while tracking.",
-  "Restore after background or force-quit: timer and state reconstructed from stored game data.",
-  "Single source of truth: mutations replay through projections—stats stay consistent after edits.",
-  "Optional cloud sync when signed in—never required on the sideline.",
+  {
+    title: "Works offline",
+    description: "Track games without internet. Everything saves to your device automatically."
+  },
+  {
+    title: "Never lose progress",
+    description: "Close the app mid-game? Your timer and stats pick up right where you left off."
+  },
+  {
+    title: "Edit anytime",
+    description: "Fix mistakes on the fly. Stats update instantly so the numbers stay accurate."
+  },
+  {
+    title: "Sync when ready",
+    description: "Cloud backup is optional. Use it when you want, not when you're forced to."
+  },
 ] as const;
 
 export default function TrustStrip() {
@@ -39,22 +51,20 @@ export default function TrustStrip() {
             Built for bad signal and long days.
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-stratos-secondary">
-            Built for college Ultimate captains and coaches who need clarity when
-            the field is loud and the clock is real.
+            No matter what happens at the field, your tracking keeps working.
           </p>
-          <ul className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-            {items.map((text) => (
-              <li key={text} className="relative pl-5">
-                <span
-                  className="absolute left-0 top-[0.35rem] h-1 w-1 rounded-full bg-stratos-accent/80"
-                  aria-hidden="true"
-                />
-                <p className="text-sm leading-snug text-stratos-secondary">
-                  {text}
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {items.map((item) => (
+              <div key={item.title} className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-5">
+                <h3 className="text-sm font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-stratos-secondary">
+                  {item.description}
                 </p>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </ScrollReveal>
       </SectionCanvas>
     </section>

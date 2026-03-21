@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import SectionCanvas from "./SectionCanvas";
 import styles from "./howItWorksTimeline.module.css";
@@ -7,24 +8,32 @@ const steps = [
     index: "01",
     title: "Roster once",
     body: "Team and players reused across games and tournaments.",
+    src: "/screenshots/roster.PNG",
+    alt: "Roster screen",
   },
   {
     index: "02",
     title: "Start the game",
     body:
-      "Opponent, tournament metadata, game type—then jump straight into live tracking.",
+      "Set opponent, tournament info, and game type, then jump straight into live tracking.",
+    src: "/screenshots/game-settings.PNG",
+    alt: "Game settings screen",
   },
   {
     index: "03",
     title: "Log every point",
     body:
-      "Events, undo, log edits; timer and score stay consistent with the projection pipeline.",
+      "Track events with undo and log edits. Timer and score stay in sync automatically.",
+    src: "/screenshots/game-log.PNG",
+    alt: "Game log screen",
   },
   {
     index: "04",
     title: "Review & share",
     body:
-      "Insights at halftime; summary and share text when the horn sounds.",
+      "Check insights at halftime. Get a summary and share text when the game ends.",
+    src: "/screenshots/game-summary.PNG",
+    alt: "Game summary screen",
   },
 ] as const;
 
@@ -49,7 +58,7 @@ export default function HowItWorksSection() {
               </h2>
             </div>
             <p className="max-w-md text-sm text-stratos-secondary md:text-right">
-              Ordered steps—no surprises when the clock is running.
+              Simple steps, no surprises when the clock is running.
             </p>
           </div>
 
@@ -84,6 +93,27 @@ export default function HowItWorksSection() {
                     >
                       {step.body}
                     </p>
+                    {/* Screenshot thumbnail */}
+                    <div
+                      className={`mt-5 inline-block overflow-hidden rounded-2xl shadow-[0_16px_48px_-16px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.06)_inset] ${i % 2 === 0 ? "md:float-right md:clear-right" : ""}`}
+                      style={{ width: 120, aspectRatio: "9 / 19.5", position: "relative" }}
+                    >
+                      <Image
+                        src={step.src}
+                        alt={step.alt}
+                        fill
+                        className="object-cover object-top"
+                        sizes="120px"
+                      />
+                      <div
+                        className="absolute inset-0 bg-[linear-gradient(165deg,rgba(255,255,255,0.05),transparent_45%,rgba(0,0,0,0.4))]"
+                        aria-hidden="true"
+                      />
+                      <div
+                        className="absolute left-1/2 top-2 h-3 w-[28%] -translate-x-1/2 rounded-full bg-black/50"
+                        aria-hidden="true"
+                      />
+                    </div>
                   </div>
 
                   <div
