@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import ThemeRoot from "@/components/theme/ThemeRoot";
+import { themeInitScript } from "@/components/theme/themeScript";
 import "./globals.css";
 
 const inter = Inter({
@@ -42,8 +44,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="min-h-dvh font-sans">{children}</body>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <body className="min-h-dvh font-sans">
+        <script
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
+        <ThemeRoot>{children}</ThemeRoot>
+      </body>
     </html>
   );
 }

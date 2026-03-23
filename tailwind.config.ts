@@ -7,12 +7,18 @@ export default {
       colors: {
         stratos: {
           bg: "var(--stratos-bg)",
+          "bg-elevated": "var(--stratos-bg-elevated)",
+          "bg-deep": "var(--stratos-bg-deep)",
           surface: "var(--stratos-surface)",
           "surface-light": "var(--stratos-surface-light)",
+          card: "var(--stratos-card)",
+          "card-hover": "var(--stratos-card-hover)",
+          "device-frame": "var(--stratos-device-frame)",
           text: "var(--stratos-text)",
           secondary: "var(--stratos-text-secondary)",
           muted: "var(--stratos-text-muted)",
           accent: "var(--stratos-accent)",
+          "accent-hover": "var(--stratos-accent-hover)",
           border: "var(--stratos-border)",
           "border-subtle": "var(--stratos-border-subtle)",
         },
@@ -22,7 +28,7 @@ export default {
         display: ["var(--font-necosmic)", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 10px 40px rgba(0,0,0,.35)",
+        soft: "var(--stratos-shadow-soft)",
       },
     },
   },

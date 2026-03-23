@@ -14,16 +14,104 @@
   --font-inter: Inter;
   --font-necosmic: Necosmic;
 
-  /* Marketing tokens (LANDING_PAGE.md / app parity) */
+  /* Marketing tokens — dark (default) */
   --stratos-bg: #060708;
+  --stratos-bg-elevated: #070809;
+  --stratos-bg-deep: #050607;
   --stratos-surface: #1a1a1a;
   --stratos-surface-light: #2a2a2a;
+  --stratos-card: #0a0b0d;
+  --stratos-card-hover: #0c0d10;
+  --stratos-device-frame: #0c0d10;
   --stratos-text: #ffffff;
   --stratos-text-secondary: #888888;
   --stratos-text-muted: #666666;
   --stratos-accent: #3b82f6;
+  --stratos-accent-hover: #60a5fa;
   --stratos-border: #333333;
   --stratos-border-subtle: #222222;
+  --stratos-shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.35);
+  --stratos-selection-bg: rgba(255, 255, 255, 0.14);
+  --stratos-fade-edge-strong: rgba(0, 0, 0, 0.4);
+  --stratos-hero-badge-bg: rgba(255, 255, 255, 0.02);
+  --stratos-hero-badge-border: rgba(255, 255, 255, 0.1);
+  --stratos-divider: rgba(255, 255, 255, 0.14);
+  --stratos-divider-soft: rgba(255, 255, 255, 0.06);
+  --stratos-link-underline: rgba(255, 255, 255, 0.15);
+  --stratos-cta-glow: rgba(59, 130, 246, 0.12);
+  --stratos-trust-dots: rgba(255, 255, 255, 0.85);
+  --stratos-trust-dots-opacity: 0.035;
+  --stratos-control-bg: rgba(255, 255, 255, 0.04);
+  --stratos-control-border: rgba(255, 255, 255, 0.08);
+  --stratos-control-hover-bg: rgba(255, 255, 255, 0.06);
+  --stratos-control-hover-border: rgba(255, 255, 255, 0.12);
+  --stratos-focus-ring: rgba(255, 255, 255, 0.4);
+  --stratos-modal-bg: #0a0b10;
+  --stratos-modal-border: rgba(255, 255, 255, 0.1);
+  --stratos-input-bg: rgba(255, 255, 255, 0.04);
+  --stratos-input-border: rgba(255, 255, 255, 0.15);
+  --stratos-input-border-focus: rgba(255, 255, 255, 0.4);
+  --stratos-input-ring-focus: rgba(255, 255, 255, 0.3);
+  --stratos-input-text: #ffffff;
+  --stratos-input-placeholder: rgba(255, 255, 255, 0.3);
+  --stratos-input-label: rgba(255, 255, 255, 0.7);
+  --stratos-option-bg: #1a1b1f;
+  --stratos-legal-body: #cccccc;
+  --stratos-legal-hr: #333333;
+  --stratos-fab-bg: rgba(255, 255, 255, 0.06);
+  --stratos-fab-border: rgba(255, 255, 255, 0.12);
+  --stratos-fab-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --stratos-fab-icon: #ffffff;
+}
+
+html[data-theme="light"] {
+  --stratos-bg: #f4f6f9;
+  --stratos-bg-elevated: #eceff4;
+  --stratos-bg-deep: #e6eaf1;
+  --stratos-surface: #ffffff;
+  --stratos-surface-light: #f0f2f6;
+  --stratos-card: #ffffff;
+  --stratos-card-hover: #f6f8fb;
+  --stratos-device-frame: #e8ecf2;
+  --stratos-text: #0f1419;
+  --stratos-text-secondary: #4b5563;
+  --stratos-text-muted: #6b7280;
+  --stratos-accent: #2563eb;
+  --stratos-accent-hover: #1d4ed8;
+  --stratos-border: #d1d5dc;
+  --stratos-border-subtle: #e5e7eb;
+  --stratos-shadow-soft: 0 12px 40px rgba(15, 20, 25, 0.08);
+  --stratos-selection-bg: rgba(37, 99, 235, 0.18);
+  --stratos-fade-edge-strong: rgba(15, 20, 25, 0.06);
+  --stratos-hero-badge-bg: rgba(15, 20, 25, 0.04);
+  --stratos-hero-badge-border: rgba(15, 20, 25, 0.1);
+  --stratos-divider: rgba(15, 20, 25, 0.12);
+  --stratos-divider-soft: rgba(15, 20, 25, 0.08);
+  --stratos-link-underline: rgba(15, 20, 25, 0.2);
+  --stratos-cta-glow: rgba(37, 99, 235, 0.08);
+  --stratos-trust-dots: rgba(15, 20, 25, 0.2);
+  --stratos-trust-dots-opacity: 0.45;
+  --stratos-control-bg: rgba(15, 20, 25, 0.04);
+  --stratos-control-border: rgba(15, 20, 25, 0.1);
+  --stratos-control-hover-bg: rgba(15, 20, 25, 0.07);
+  --stratos-control-hover-border: rgba(15, 20, 25, 0.14);
+  --stratos-focus-ring: rgba(37, 99, 235, 0.45);
+  --stratos-modal-bg: #ffffff;
+  --stratos-modal-border: rgba(15, 20, 25, 0.1);
+  --stratos-input-bg: #f4f6f9;
+  --stratos-input-border: rgba(15, 20, 25, 0.14);
+  --stratos-input-border-focus: rgba(37, 99, 235, 0.45);
+  --stratos-input-ring-focus: rgba(37, 99, 235, 0.2);
+  --stratos-input-text: #0f1419;
+  --stratos-input-placeholder: rgba(15, 20, 25, 0.45);
+  --stratos-input-label: rgba(15, 20, 25, 0.65);
+  --stratos-option-bg: #ffffff;
+  --stratos-legal-body: #374151;
+  --stratos-legal-hr: #e5e7eb;
+  --stratos-fab-bg: #ffffff;
+  --stratos-fab-border: rgba(15, 20, 25, 0.12);
+  --stratos-fab-shadow: 0 8px 28px rgba(15, 20, 25, 0.12);
+  --stratos-fab-icon: #0f1419;
 }
 
 html,
@@ -32,15 +120,79 @@ body {
 }
 
 body {
-  @apply bg-[#060708] text-white antialiased;
+  @apply antialiased;
+  background-color: var(--stratos-bg);
+  color: var(--stratos-text);
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.14);
+  background: var(--stratos-selection-bg);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+}
+
+@layer components {
+  .legal-doc {
+    font-size: 15px;
+    line-height: 1.625;
+    color: var(--stratos-legal-body);
+  }
+
+  .legal-doc h1 {
+    @apply mt-0 mb-6 text-2xl font-semibold tracking-tight;
+    color: var(--stratos-text);
+  }
+
+  .legal-doc h2 {
+    @apply mb-3 mt-10 text-lg font-semibold;
+    color: var(--stratos-text);
+  }
+
+  .legal-doc h3 {
+    @apply mb-2 mt-6 text-base font-semibold;
+    color: var(--stratos-text);
+  }
+
+  .legal-doc p {
+    @apply mb-4;
+  }
+
+  .legal-doc ul {
+    @apply my-4 ml-6 list-disc space-y-2;
+  }
+
+  .legal-doc ol {
+    @apply my-4 ml-6 list-decimal space-y-2;
+  }
+
+  .legal-doc li {
+    @apply pl-1;
+  }
+
+  .legal-doc hr {
+    @apply my-8;
+    border-color: var(--stratos-legal-hr);
+  }
+
+  .legal-doc strong {
+    @apply font-semibold;
+    color: var(--stratos-text);
+  }
+
+  .legal-doc a {
+    @apply underline underline-offset-2 transition-colors;
+    color: var(--stratos-accent);
+  }
+
+  .legal-doc a:hover {
+    color: var(--stratos-accent-hover);
+  }
+
+  .legal-doc em {
+    @apply italic;
   }
 }

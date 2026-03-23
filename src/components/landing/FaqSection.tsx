@@ -27,7 +27,7 @@ const faqs = [
 export default function FaqSection() {
   return (
     <section
-      className="relative z-10 bg-[#060708] py-28 md:py-36"
+      className="relative z-10 bg-stratos-bg py-28 md:py-36"
       aria-labelledby="faq-heading"
     >
       <SectionCanvas narrow>
@@ -37,7 +37,7 @@ export default function FaqSection() {
           </p>
           <h2
             id="faq-heading"
-            className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-white sm:text-3xl"
+            className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-stratos-text sm:text-3xl"
           >
             Questions
           </h2>
@@ -45,9 +45,9 @@ export default function FaqSection() {
             {faqs.map((item) => (
               <details
                 key={item.q}
-                className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] px-5 py-4 transition hover:border-white/[0.1] hover:bg-white/[0.03] [&_summary::-webkit-details-marker]:hidden"
+                className="group rounded-2xl border border-[var(--stratos-control-border)] bg-[var(--stratos-control-bg)] px-5 py-4 transition hover:border-[var(--stratos-control-hover-border)] hover:bg-[var(--stratos-control-hover-bg)] [&_summary::-webkit-details-marker]:hidden"
               >
-                <summary className="cursor-pointer list-none text-sm font-semibold text-white outline-none focus-visible:rounded-md focus-visible:ring-2 focus-visible:ring-stratos-accent/80">
+                <summary className="cursor-pointer list-none text-sm font-semibold text-stratos-text outline-none focus-visible:rounded-md focus-visible:ring-2 focus-visible:ring-stratos-accent/80">
                   <span className="flex items-start justify-between gap-4">
                     {item.q}
                     <span

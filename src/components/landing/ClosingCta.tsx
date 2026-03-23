@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { ReactNode } from "react";
 import ScrollReveal from "./ScrollReveal";
 import SectionCanvas from "./SectionCanvas";
@@ -11,11 +12,11 @@ type Props = {
 export default function ClosingCta({ primary, secondary }: Props) {
   return (
     <section
-      className="relative z-10 overflow-hidden bg-[#060708] py-28 md:py-36"
+      className="relative z-10 overflow-hidden bg-stratos-bg py-28 md:py-36"
       aria-labelledby="cta-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_0%,rgba(59,130,246,0.12),transparent_60%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_0%,var(--stratos-cta-glow),transparent_60%)]"
         aria-hidden="true"
       />
       {/* Blurred screenshot background */}
@@ -27,10 +28,10 @@ export default function ClosingCta({ primary, secondary }: Props) {
           className="object-cover object-top scale-110 blur-2xl opacity-10"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[#060708]/70" />
+        <div className="absolute inset-0 bg-stratos-bg/70" />
       </div>
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.09] to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--stratos-divider-soft)] to-transparent"
         aria-hidden="true"
       />
       <SectionCanvas narrow>
@@ -41,7 +42,7 @@ export default function ClosingCta({ primary, secondary }: Props) {
             </p>
             <h2
               id="cta-heading"
-              className="mt-4 text-3xl font-semibold tracking-[-0.02em] text-white sm:text-4xl"
+              className="mt-4 text-3xl font-semibold tracking-[-0.02em] text-stratos-text sm:text-4xl"
             >
               Bring the numbers to the sideline.
             </h2>
@@ -53,21 +54,21 @@ export default function ClosingCta({ primary, secondary }: Props) {
               {secondary}
             </div>
             <p className="mt-12 text-[11px] text-stratos-muted">
-              <a
-                href="#"
-                className="underline decoration-white/15 underline-offset-4 transition hover:text-stratos-secondary focus:outline-none focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-stratos-accent/80"
+              <Link
+                href="/terms"
+                className="underline decoration-[var(--stratos-link-underline)] underline-offset-4 transition hover:text-stratos-secondary focus:outline-none focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-stratos-accent/80"
               >
                 Terms
-              </a>
+              </Link>
               <span className="mx-2 text-stratos-border" aria-hidden="true">
                 ·
               </span>
-              <a
-                href="#"
-                className="underline decoration-white/15 underline-offset-4 transition hover:text-stratos-secondary focus:outline-none focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-stratos-accent/80"
+              <Link
+                href="/privacy"
+                className="underline decoration-[var(--stratos-link-underline)] underline-offset-4 transition hover:text-stratos-secondary focus:outline-none focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-stratos-accent/80"
               >
                 Privacy
-              </a>
+              </Link>
             </p>
           </div>
         </ScrollReveal>

@@ -6,18 +6,18 @@ import SectionCanvas from "./SectionCanvas";
 
 const frames = [
   { caption: "Live board", label: "Live tracking screen", src: "/screenshots/live-board.PNG" },
-  { caption: "Halftime insights", label: "Halftime insights screen", src: "/screenshots/insights.PNG" },
+  { caption: "Create and edit lines", label: "Edit lines screen", src: "/screenshots/edit-line.PNG" },
   { caption: "Share-ready summary", label: "Share-ready summary screen", src: "/screenshots/game-summary.PNG" },
 ] as const;
 
 export default function ProductGlimpse() {
   return (
     <section
-      className="relative z-10 bg-[#070809] py-24 md:py-32"
+      className="relative z-10 bg-stratos-bg-elevated py-24 md:py-32"
       aria-labelledby="product-heading"
     >
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--stratos-divider-soft)] to-transparent"
         aria-hidden="true"
       />
       <SectionCanvas>
@@ -29,7 +29,7 @@ export default function ProductGlimpse() {
               </p>
               <h2
                 id="product-heading"
-                className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-white sm:text-3xl"
+                className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-stratos-text sm:text-3xl"
               >
                 See Stratos in motion
               </h2>
@@ -44,11 +44,11 @@ export default function ProductGlimpse() {
       <ScrollReveal delayMs={90} className="mt-14 block">
         <div className="relative">
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#070809] to-transparent md:w-24"
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-stratos-bg-elevated to-transparent md:w-24"
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#070809] to-transparent md:w-24"
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-stratos-bg-elevated to-transparent md:w-24"
             aria-hidden="true"
           />
 
@@ -66,7 +66,7 @@ export default function ProductGlimpse() {
                   className="w-[min(78vw,300px)] shrink-0 snap-center snap-always"
                 >
                   <div
-                    className="relative overflow-hidden rounded-[1.75rem] bg-[#0c0d10] shadow-[0_24px_80px_-32px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.06)_inset]"
+                    className="relative overflow-hidden rounded-[1.75rem] bg-stratos-device-frame shadow-soft ring-1 ring-stratos-border-subtle/60"
                     style={{ aspectRatio: "9 / 19.5" }}
                   >
                     <Image

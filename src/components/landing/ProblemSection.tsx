@@ -6,11 +6,11 @@ export default function ProblemSection() {
   return (
     <section
       id="problem"
-      className="relative z-10 overflow-hidden bg-[#060708] pb-28 pt-20 md:pb-32 md:pt-24"
+      className="relative z-10 overflow-hidden bg-stratos-bg pb-28 pt-20 md:pb-32 md:pt-24"
       aria-labelledby="problem-heading"
     >
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/40 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[var(--stratos-fade-edge-strong)] to-transparent"
         aria-hidden="true"
       />
 
@@ -27,8 +27,8 @@ export default function ProblemSection() {
             className="object-cover object-top"
             sizes="320px"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060708] via-[#060708]/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#060708] via-transparent to-[#060708]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-stratos-bg via-stratos-bg/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-stratos-bg via-transparent to-stratos-bg" />
         </div>
       </div>
 
@@ -39,7 +39,7 @@ export default function ProblemSection() {
           </p>
           <h2
             id="problem-heading"
-            className="mt-5 max-w-[22ch] text-3xl font-semibold tracking-[-0.02em] text-white sm:text-4xl"
+            className="mt-5 max-w-[22ch] text-3xl font-semibold tracking-[-0.02em] text-stratos-text sm:text-4xl"
           >
             Decisions at halftime, not spreadsheets after midnight.
           </h2>
@@ -50,7 +50,7 @@ export default function ProblemSection() {
             have internet.
           </p>
           <div
-            className="mt-12 h-px w-full max-w-sm bg-gradient-to-r from-white/[0.14] via-white/[0.06] to-transparent"
+            className="mt-12 h-px w-full max-w-sm bg-gradient-to-r from-[var(--stratos-divider)] via-[var(--stratos-divider-soft)] to-transparent"
             aria-hidden="true"
           />
         </ScrollReveal>

@@ -4,7 +4,7 @@ import DotGrid from "@/components/DotGrid";
 import EarlyAccessModal from "@/components/EarlyAccessModal";
 import Button from "@/components/Button";
 import ClosingCta from "@/components/landing/ClosingCta";
-import FaqSection from "@/components/landing/FaqSection";
+// import FaqSection from "@/components/landing/FaqSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import PillarsSection from "@/components/landing/PillarsSection";
 import ProblemSection from "@/components/landing/ProblemSection";
@@ -79,7 +79,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="relative min-h-dvh overflow-x-hidden bg-[#060708]">
+    <main className="relative min-h-dvh overflow-x-hidden bg-stratos-bg">
       <DotGrid />
 
       <header className="pointer-events-none absolute left-6 top-6 z-20 md:left-10 md:top-8">
@@ -104,16 +104,16 @@ export default function HomePage() {
 
       <section className="relative z-10 mx-auto flex min-h-dvh max-w-5xl flex-col items-start justify-center px-6 pt-32 pb-16 md:flex-row md:items-center md:px-10 md:py-12 lg:px-16">
         <div className="flex-1">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 text-xs font-medium text-white/70 backdrop-blur">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--stratos-hero-badge-border)] bg-[var(--stratos-hero-badge-bg)] px-3 py-1 text-xs font-medium text-stratos-secondary backdrop-blur">
             <span className="inline-flex h-1.5 w-1.5 rounded-full bg-stratos-accent" />
             Early access
           </div>
 
-          <h1 className="font-[var(--font-necosmic)] text-4xl leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            The game moves fast, your tools should too.
+          <h1 className="font-display text-4xl leading-tight tracking-tight text-stratos-text sm:text-5xl md:text-6xl lg:text-7xl">
+              Stats that give you the edge.
           </h1>
 
-          <p className="mt-6 max-w-xl text-sm text-white/70 sm:text-base">
+          <p className="mt-6 max-w-xl text-sm text-stratos-secondary sm:text-base">
             Stay with the game as it happens. Track what matters in real time, manage lines without slowing down, and make decisions that hold up.
           </p>
 
@@ -134,13 +134,13 @@ export default function HomePage() {
             </Button>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-6 text-xs text-white/45">
+          <div className="mt-8 flex flex-wrap gap-6 text-xs text-stratos-muted">
             <div>
-              <div className="font-medium text-white/70">Movement by design</div>
+              <div className="font-medium text-stratos-secondary">Movement by design</div>
               <div>Gesture-first actions for fast, intuitive scorekeeping.</div>
             </div>
             <div>
-              <div className="font-medium text-white/70">
+              <div className="font-medium text-stratos-secondary">
                 Built for granularity
               </div>
               <div>Detailed stats for every play, every point, every game.</div>
@@ -151,7 +151,7 @@ export default function HomePage() {
         {/* Hero screenshot — visible on md+ */}
         <div className="pointer-events-none hidden md:block md:ml-12 lg:ml-16 shrink-0">
           <div
-            className="relative overflow-hidden rounded-[15px] shadow-[0_32px_96px_-24px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.07)_inset]"
+            className="relative overflow-hidden rounded-[15px] shadow-soft ring-1 ring-stratos-border-subtle/60"
             style={{ width: 200, aspectRatio: "9 / 19.5" }}
           >
             <Image
@@ -180,7 +180,7 @@ export default function HomePage() {
         <HowItWorksSection />
         <TrustStrip />
         <ProductGlimpse />
-        <FaqSection />
+        {/* <FaqSection /> */}
         <ClosingCta
           primary={
             <Button

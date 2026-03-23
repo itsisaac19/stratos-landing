@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 export default function SiteFooter() {
   return (
-    <footer className="relative z-10 bg-[#050607] px-6 py-12 md:px-10 lg:px-16">
+    <footer className="relative z-10 bg-stratos-bg-deep px-6 py-12 md:px-10 lg:px-16">
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--stratos-divider-soft)] to-transparent"
         aria-hidden="true"
       />
       <div className="mx-auto flex max-w-5xl flex-col gap-6 text-[11px] text-stratos-muted sm:flex-row sm:items-center sm:justify-between">
@@ -19,21 +21,21 @@ export default function SiteFooter() {
           <span aria-hidden="true" className="text-stratos-border">
             ·
           </span>
-          <a
-            href="#"
+          <Link
+            href="/terms"
             className="transition hover:text-stratos-secondary focus:outline-none focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-stratos-accent/80"
           >
             Terms
-          </a>
+          </Link>
           <span aria-hidden="true" className="text-stratos-border">
             ·
           </span>
-          <a
-            href="#"
+          <Link
+            href="/privacy"
             className="transition hover:text-stratos-secondary focus:outline-none focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-stratos-accent/80"
           >
             Privacy
-          </a>
+          </Link>
         </p>
       </div>
     </footer>

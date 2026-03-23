@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useTheme } from "@/components/theme/ThemeRoot";
+import { useMemo, useState } from "react";
 import type { FormEvent } from "react";
 
 type SubmissionStatus = "idle" | "loading" | "success" | "error";
@@ -55,6 +56,24 @@ export default function EarlyAccessModal({
   statusMessage,
   onSubmit,
 }: Props) {
+  const { theme } = useTheme();
+  const selectChrome = useMemo(() => {
+    const fill =
+      theme === "light" ? "rgba(15,20,25,0.45)" : "rgba(255,255,255,0.5)";
+    const encoded = encodeURIComponent(
+      `<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='${fill}' d='M6 8L2 4h8z'/></svg>`
+    );
+    return {
+      backgroundImage: `url("data:image/svg+xml,${encoded}")`,
+      backgroundRepeat: "no-repeat" as const,
+      backgroundPosition: "right 1rem center" as const,
+      colorScheme: (theme === "light" ? "light" : "dark") as "light" | "dark",
+    };
+  }, [theme]);
+
+  const inputOk =
+    "border-[var(--stratos-input-border)] focus:border-[var(--stratos-input-border-focus)] focus:ring-[var(--stratos-input-ring-focus)]";
+
   const [email, setEmail] = useState("");
   const [teamName, setTeamName] = useState("");
   const [category, setCategory] = useState<Category | "">("");
@@ -147,13 +166,13 @@ export default function EarlyAccessModal({
 
   return (
     <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm">
-      <div className="w-full max-w-md rounded-2xl border border-white/10 bg-[#05060a] p-6 shadow-xl outline-none">
+      <div className="w-full max-w-md rounded-2xl border border-[var(--stratos-modal-border)] bg-[var(--stratos-modal-bg)] p-6 shadow-xl outline-none">
         <div className="mb-4 flex items-start justify-between gap-4">
           <div>
-            <h2 className="text-lg font-semibold text-white">
+            <h2 className="text-lg font-semibold text-stratos-text">
               Join the early access
             </h2>
-            <p className="mt-1 text-xs text-white/60">
+            <p className="mt-1 text-xs text-stratos-secondary">
               Drop your email and we&apos;ll let you know when Stratos is ready
               for your team.
             </p>
@@ -161,7 +180,7 @@ export default function EarlyAccessModal({
           <button
             type="button"
             onClick={handleClose}
-            className="rounded-full p-1 text-white/50 hover:bg-white/5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            className="rounded-full p-1 text-stratos-muted hover:bg-[var(--stratos-control-hover-bg)] hover:text-stratos-text focus:outline-none focus-visible:ring-2 focus-visible:ring-stratos-accent/45"
           >
             <span className="sr-only">Close</span>
             ✕
@@ -172,7 +191,7 @@ export default function EarlyAccessModal({
           <div className="space-y-2">
             <label
               htmlFor="early-access-email"
-              className="block text-xs font-medium text-white/70"
+              className="block text-xs font-medium text-[var(--stratos-input-label)]"
             >
               Email
             </label>
@@ -192,8 +211,8 @@ export default function EarlyAccessModal({
               className={`h-10 w-full rounded-full border ${
                 touched.email && errors.email
                   ? "border-rose-500/50 focus:border-rose-500 focus:ring-rose-500/30"
-                  : "border-white/15 focus:border-white/40 focus:ring-white/30"
-              } bg-white/[0.04] px-4 text-base text-white placeholder:text-white/30 outline-none ring-0 transition focus:ring-2`}
+                  : inputOk
+              } bg-[var(--stratos-input-bg)] px-4 text-base text-[var(--stratos-input-text)] placeholder:text-[var(--stratos-input-placeholder)] outline-none ring-0 transition focus:ring-2`}
               aria-invalid={touched.email && errors.email ? "true" : "false"}
               aria-describedby={touched.email && errors.email ? "email-error" : undefined}
             />
@@ -207,7 +226,7 @@ export default function EarlyAccessModal({
           <div className="space-y-2">
             <label
               htmlFor="team-name"
-              className="block text-xs font-medium text-white/70"
+              className="block text-xs font-medium text-[var(--stratos-input-label)]"
             >
               Team name
             </label>
@@ -226,8 +245,8 @@ export default function EarlyAccessModal({
               className={`h-10 w-full rounded-full border ${
                 touched.teamName && errors.teamName
                   ? "border-rose-500/50 focus:border-rose-500 focus:ring-rose-500/30"
-                  : "border-white/15 focus:border-white/40 focus:ring-white/30"
-              } bg-white/[0.04] px-4 text-base text-white placeholder:text-white/30 outline-none ring-0 transition focus:ring-2`}
+                  : inputOk
+              } bg-[var(--stratos-input-bg)] px-4 text-base text-[var(--stratos-input-text)] placeholder:text-[var(--stratos-input-placeholder)] outline-none ring-0 transition focus:ring-2`}
               aria-invalid={touched.teamName && errors.teamName ? "true" : "false"}
               aria-describedby={touched.teamName && errors.teamName ? "team-name-error" : undefined}
             />
@@ -241,7 +260,7 @@ export default function EarlyAccessModal({
           <div className="space-y-2">
             <label
               htmlFor="category"
-              className="block text-xs font-medium text-white/70"
+              className="block text-xs font-medium text-[var(--stratos-input-label)]"
             >
               Category
             </label>
@@ -260,14 +279,9 @@ export default function EarlyAccessModal({
               className={`h-10 w-full rounded-full border ${
                 touched.category && errors.category
                   ? "border-rose-500/50 focus:border-rose-500 focus:ring-rose-500/30"
-                  : "border-white/15 focus:border-white/40 focus:ring-white/30"
-              } bg-white/[0.04] pl-4 pr-10 text-base text-white outline-none ring-0 transition focus:ring-2 appearance-none [&>option]:bg-[#1a1b1f] [&>option]:text-white`}
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.5)' d='M6 8L2 4h8z'/%3E%3C/svg%3E")`,
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'right 1rem center',
-                colorScheme: 'dark',
-              }}
+                  : inputOk
+              } bg-[var(--stratos-input-bg)] pl-4 pr-10 text-base text-[var(--stratos-input-text)] outline-none ring-0 transition focus:ring-2 appearance-none [&>option]:bg-[var(--stratos-option-bg)] [&>option]:text-stratos-text`}
+              style={selectChrome}
               aria-invalid={touched.category && errors.category ? "true" : "false"}
               aria-describedby={touched.category && errors.category ? "category-error" : undefined}
             >
@@ -291,7 +305,7 @@ export default function EarlyAccessModal({
             <div className="space-y-2">
               <label
                 htmlFor="division"
-                className="block text-xs font-medium text-white/70"
+                className="block text-xs font-medium text-[var(--stratos-input-label)]"
               >
                 Division
               </label>
@@ -308,14 +322,9 @@ export default function EarlyAccessModal({
                 className={`h-10 w-full rounded-full border ${
                   touched.division && errors.division
                     ? "border-rose-500/50 focus:border-rose-500 focus:ring-rose-500/30"
-                    : "border-white/15 focus:border-white/40 focus:ring-white/30"
-                } bg-white/[0.04] pl-4 pr-10 text-base text-white outline-none ring-0 transition focus:ring-2 appearance-none [&>option]:bg-[#1a1b1f] [&>option]:text-white`}
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.5)' d='M6 8L2 4h8z'/%3E%3C/svg%3E")`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'right 1rem center',
-                  colorScheme: 'dark',
-                }}
+                    : inputOk
+                } bg-[var(--stratos-input-bg)] pl-4 pr-10 text-base text-[var(--stratos-input-text)] outline-none ring-0 transition focus:ring-2 appearance-none [&>option]:bg-[var(--stratos-option-bg)] [&>option]:text-stratos-text`}
+                style={selectChrome}
                 aria-invalid={touched.division && errors.division ? "true" : "false"}
                 aria-describedby={touched.division && errors.division ? "division-error" : undefined}
               >
@@ -339,13 +348,13 @@ export default function EarlyAccessModal({
           <button
             type="submit"
             disabled={status === "loading"}
-            className="inline-flex h-10 w-full items-center justify-center rounded-full bg-white text-sm font-medium text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            className="inline-flex h-10 w-full items-center justify-center rounded-full bg-stratos-text text-sm font-medium text-stratos-bg transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-stratos-accent/45"
           >
             {status === "loading" ? "Joining…" : "Join the list"}
           </button>
 
           <div className="space-y-1">
-            <p className="text-[11px] leading-relaxed text-white/40">
+            <p className="text-[11px] leading-relaxed text-stratos-muted">
               No spam, ever. Just an occasional update when new features land
               or we&apos;re opening more teams.
             </p>

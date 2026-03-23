@@ -13,12 +13,12 @@ export default function Button({
   ...props
 }: Props) {
   const base =
-    "inline-flex items-center justify-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
+    "inline-flex items-center justify-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-stratos-accent/45";
   const sizes = size === "sm" ? "h-9 px-4 text-sm" : "h-10 px-5 text-sm";
   const variants =
     variant === "solid"
-      ? "bg-white text-black hover:bg-white/90"
-      : "bg-white/[0.04] text-white hover:bg-white/[0.07] ring-1 ring-white/10";
+      ? "bg-stratos-text text-stratos-bg hover:opacity-90"
+      : "bg-[var(--stratos-control-bg)] text-stratos-text ring-1 ring-[var(--stratos-control-border)] hover:bg-[var(--stratos-control-hover-bg)]";
 
   return (
     <Link className={[base, sizes, variants, className].filter(Boolean).join(" ")} {...props} />

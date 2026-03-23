@@ -29,11 +29,11 @@ const pillars = [
 export default function PillarsSection() {
   return (
     <section
-      className="relative z-10 bg-[#070809] py-28 md:py-36"
+      className="relative z-10 bg-stratos-bg-elevated py-28 md:py-36"
       aria-labelledby="pillars-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-20%,rgba(255,255,255,0.06),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-20%,color-mix(in_srgb,var(--stratos-text)_8%,transparent),transparent_55%)]"
         aria-hidden="true"
       />
       <SectionCanvas>
@@ -45,12 +45,12 @@ export default function PillarsSection() {
               </p>
               <h2
                 id="pillars-heading"
-                className="mt-3 max-w-xl text-2xl font-semibold tracking-[-0.02em] text-white sm:text-3xl"
+                className="mt-3 max-w-xl text-2xl font-semibold tracking-[-0.02em] text-stratos-text sm:text-3xl"
               >
                 Everything you need between the lines
               </h2>
             </div>
-            <p className="max-w-md text-sm leading-relaxed text-stratos-secondary md:text-right">
+            <p className="max-w-md text-sm leading-relaxed text-stratos-secondary">
               Track, understand, share. Three things that stay in sync when the
               game speeds up.
             </p>
@@ -60,9 +60,9 @@ export default function PillarsSection() {
             {pillars.map((pillar, i) => (
               <article
                 key={pillar.title}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-b from-white/[0.07] to-white/[0.02] p-px shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset]"
+                className="group relative overflow-hidden rounded-2xl bg-gradient-to-b from-stratos-text/[0.08] to-stratos-text/[0.02] p-px shadow-[0_0_0_1px_color-mix(in_srgb,var(--stratos-text)_5%,transparent)_inset]"
               >
-                <div className="relative h-full rounded-[15px] bg-[#0a0b0d]/95 transition duration-300 group-hover:bg-[#0c0d10]/95">
+                <div className="relative h-full rounded-[15px] bg-stratos-card/95 transition duration-300 group-hover:bg-stratos-card-hover/95">
                   {/* Screenshot thumbnail */}
                   <div
                     className="relative w-full overflow-hidden rounded-t-[15px]"
@@ -80,7 +80,7 @@ export default function PillarsSection() {
                       aria-hidden="true"
                     />
                     <div
-                      className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0a0b0d] to-transparent"
+                      className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-stratos-card to-transparent"
                       aria-hidden="true"
                     />
                   </div>
@@ -93,7 +93,7 @@ export default function PillarsSection() {
                     <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-stratos-muted">
                       {String(i + 1).padStart(2, "0")}
                     </p>
-                    <h3 className="relative mt-4 text-base font-semibold tracking-tight text-white">
+                    <h3 className="relative mt-4 text-base font-semibold tracking-tight text-stratos-text">
                       {pillar.title}
                     </h3>
                     <p className="relative mt-3 text-sm leading-relaxed text-stratos-secondary">
